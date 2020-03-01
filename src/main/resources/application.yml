@@ -1,0 +1,33 @@
+# \u9879\u76EE\u914D\u7F6E
+server:
+  port: 8080
+  servlet:
+    context-path: /shop
+    jsp:
+      init-parameters:
+        development: true # \u5F00\u542Fjsp\u8C03\u8BD5
+# \u6570\u636E\u6E90\u914D\u7F6E
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/test01?characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&useSSL=false
+  mvc:
+    view:
+      prefix: /WEB-INF/page/ # \u9875\u9762\u524D\u7F00
+      suffix: .jsp # \u9875\u9762\u540E\u7F00
+    static-path-pattern: /static/**
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml # mapper.xml\u6587\u4EF6\u4F4D\u7F6E
+  configuration:
+    map-underscore-to-camel-case: true # \u9A7C\u5CF0\u81EA\u52A8\u6620\u5C04\uFF08\u4E0B\u5212\u7EBF\uFF09
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # \u6253\u65E5\u5FD7
+  type-aliases-package: com.dj.shop.pojo # pojo\u8DEF\u5F84
+# \u5206\u9875
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
